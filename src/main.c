@@ -4,6 +4,8 @@
 
 int main(void)
 {
+    printf("\033[H\033[2J");
+    fflush(stdout);
     __uint8_t first_open=0;
     time_diff Time_Display;
     for(int i = 0; i < 10; i++)
