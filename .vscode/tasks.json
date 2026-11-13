@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "构建 Bricks",
+            "type": "shell",
+            "command": "mkdir -p build && gcc -fdiagnostics-color=always -g -Wall -Wextra src/*.c -Iinclude -o build/bricks",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+            "detail": "编译 src 下所有 .c 文件，输出到 build/bricks"
+        }
+    ]
+}
