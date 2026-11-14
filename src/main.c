@@ -9,7 +9,7 @@
 int main(void)
 {
     Term_Init();
-    void Windows_Sizeset(void);
+    Windows_Sizeset();
     Bricks_State.next_time = Now_Second();
 
     int keyboard_input=0;
