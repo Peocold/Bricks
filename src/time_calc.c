@@ -2,13 +2,16 @@
 #include <time_calc.h>
 
 static time_t open_timeinfo;
-
-double Now_Second(void);
-void Sleep_Second(double);
-
-time_diff Get_Time(__uint8_t *open_state)
+Game_State Bricks_State=
 {
-    time_diff time_total = {0,0,0};
+    .mode = START,
+    .start = 0,
+    .next_time = 0,
+};
+
+Time_Diff Get_Time(uint8_t *open_state)
+{
+    Time_Diff time_total = {0,0,0};
     time_t timeinfo = time(NULL);
 
     // 登游判断

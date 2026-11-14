@@ -5,16 +5,32 @@
 #include <stdint.h>
 #include <time.h>
 
-typedef struct time_diff_t
+typedef struct Time_Diff_t
 {
     int sec;
     int min;
     int hour;
-} time_diff;
+} Time_Diff;
 
-time_diff Get_Time(uint8_t *open_state);
+typedef enum
+{
+    START,
+    GAME,
+} MODE;
+
+typedef struct Game_State_t
+{
+    uint8_t start;
+    double next_time;
+    MODE mode;
+    Time_Diff Time_Display;
+} Game_State;
+
+Time_Diff Get_Time(uint8_t *open_state);
 double Now_Second(void);
 void Sleep_Second(double);
 void Refresh(double *next_time, int rate);
+
+extern Game_State Bricks_State;
 
 #endif
