@@ -29,7 +29,9 @@ typedef struct Game_State_t
 Time_Diff Get_Time(uint8_t *open_state);
 double Now_Second(void);
 void Sleep_Second(double);
-void Refresh(double *next_time, int rate);
+void Time_Refresh(double *next_time, int rate);
+void Time_Display(void);
+void Refresh_Bullet(void);
 
 extern Game_State Bricks_State;
 

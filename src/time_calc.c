@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time_calc.h>
+#include <print.h>
 
 static time_t open_timeinfo;
 Game_State Bricks_State=
@@ -50,7 +51,7 @@ void Sleep_Second(double second)
     nanosleep(&ts, NULL);
 }
 
-void Refresh(double *next_time, int rate)
+void Time_Refresh(double *next_time, int rate)
 {
     if(rate <= 0 || next_time == NULL)
     {
@@ -69,8 +70,35 @@ void Refresh(double *next_time, int rate)
     }
     printf("\033[3J\033[H");
     fflush(stdout);
-    // 显示运行时间
+}
+
+void Time_Display(void)
+{
     Bricks_State.Time_Display = Get_Time(&(Bricks_State.start));
     printf("                  已运行%2d时%2d分%2d秒\n",Bricks_State.Time_Display.hour,
     Bricks_State.Time_Display.min,Bricks_State.Time_Display.sec);
+}
+
+void Refresh_Bullet(void)
+{
+
+    for(int i = 0; i < 17; i++)
+    {
+        for(int j = 0; j < 36; j++)
+        {
+            if(Print_Content[i][j] == '|')
+            {
+                Print_Content[i][j] = ' ';
+                if(i > 0)
+                {
+                    Print_Content[i-1][j] = '|';
+                }
+            }
+        }
+    }
+    if(Plane.y > 0)
+    {
+        Print_Content[Plane.y-1][Plane.x] = '|';
+        Print_Content[Plane.y-1][Plane.x+1] = '|';
+    }
 }

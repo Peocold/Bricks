@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <unistd.h>
-
 #include <time_calc.h>
 #include <input.h>
 #include <print.h>
@@ -13,9 +12,11 @@ int main(void)
     int key_input=0;
     while(1)
     {
-        Refresh(&Bricks_State.next_time, 60);
+        Time_Refresh(&Bricks_State.next_time, 30);
+        Time_Display();
         key_input = Read_Key();
-        Tank_Ctrl(key_input);
+        Tank_PosiCtrl(key_input);
+        Refresh_Bullet();
         Screen_Print(Print_Content);
 
         if(key_input == KEY_EXIT)
