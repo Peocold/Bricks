@@ -78,27 +78,3 @@ void Time_Display(void)
     printf("                  已运行%2d时%2d分%2d秒\n",Bricks_State.Time_Display.hour,
     Bricks_State.Time_Display.min,Bricks_State.Time_Display.sec);
 }
-
-void Refresh_Bullet(void)
-{
-
-    for(int i = 0; i < 17; i++)
-    {
-        for(int j = 0; j < 36; j++)
-        {
-            if(Print_Content[i][j] == '|')
-            {
-                Print_Content[i][j] = ' ';
-                if(i > 0)
-                {
-                    Print_Content[i-1][j] = '|';
-                }
-            }
-        }
-    }
-    if(Plane.y > 0)
-    {
-        Print_Content[Plane.y-1][Plane.x] = '|';
-        Print_Content[Plane.y-1][Plane.x+1] = '|';
-    }
-}
