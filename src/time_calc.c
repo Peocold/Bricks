@@ -69,4 +69,8 @@ void Refresh(double *next_time, int rate)
     }
     printf("\033[3J\033[H");
     fflush(stdout);
+    // 显示运行时间
+    Bricks_State.Time_Display = Get_Time(&(Bricks_State.start));
+    printf("                  已运行%2d时%2d分%2d秒\n",Bricks_State.Time_Display.hour,
+    Bricks_State.Time_Display.min,Bricks_State.Time_Display.sec);
 }

@@ -1,34 +1,20 @@
 #ifndef __PRINT_H
 #define __PRINT_H
 
-typedef struct Plane_t
+#include <stdio.h>
+#include <stdint.h>
+
+typedef struct Plane_struct_t
 {
     uint8_t x;
     uint8_t y;
-};
+} Plane_t;
 
-typedef struct Content_struct_t
-{
-    char Y_01[15];
-    char Y_02[15];
-    char Y_03[15];
-    char Y_04[15];
-    char Y_05[15];
-    char Y_06[15];
-    char Y_07[15];
-    char Y_08[15];
-    char Y_09[15];
-    char Y_10[15];
-    char Y_11[15];
-    char Y_12[15];
-    char Y_13[15];
-    char Y_14[15];
-    char Y_15[15];
-    char Y_16[15];
-    char Y_17[15];
-    char Y_18[15];
-} Content_t;
+void Windows_Init(void);
+void Screen_Print(char Content[17][37]);
+void Tank_Ctrl(int key_input);
 
-void Windows_Sizeset(void);
+extern char Print_Content[17][37];
+extern Plane_t Plane;
 
 #endif
