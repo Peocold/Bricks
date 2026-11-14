@@ -1,14 +1,9 @@
 #include <stdio.h>
 #include <time_calc.h>
 #include <print.h>
+#include <mode.h>
 
 static time_t open_timeinfo;
-Game_State Bricks_State=
-{
-    .mode = START,
-    .start = 0,
-    .next_time = 0,
-};
 
 Time_Diff Get_Time(uint8_t *open_state)
 {
@@ -75,6 +70,23 @@ void Time_Refresh(double *next_time, int rate)
 void Time_Display(void)
 {
     Bricks_State.Time_Display = Get_Time(&(Bricks_State.start));
-    printf("                  已运行%2d时%2d分%2d秒\n",Bricks_State.Time_Display.hour,
-    Bricks_State.Time_Display.min,Bricks_State.Time_Display.sec);
+    switch(Bricks_State.mode)
+    {
+        case PAUSE:
+            printf("暂停               已运行%01d时%02d分%02d秒\n",Bricks_State.Time_Display.hour,
+                    Bricks_State.Time_Display.min,Bricks_State.Time_Display.sec);
+            break;
+        case START:
+            printf("分数:%05d         已运行%01d时%02d分%02d秒\n",Bricks_State.score,Bricks_State.Time_Display.hour,
+                    Bricks_State.Time_Display.min,Bricks_State.Time_Display.sec);
+            break;
+        case EXIT:
+            printf("结束               已运行%01d时%02d分%02d秒\n",Bricks_State.Time_Display.hour,
+                    Bricks_State.Time_Display.min,Bricks_State.Time_Display.sec);
+            break;
+        case OVER:
+            printf("游戏结束!你的分数为:%d\n",Bricks_State.score);
+            Bricks_State.score = 0;
+            break;
+    }
 }

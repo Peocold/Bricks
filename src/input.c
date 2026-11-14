@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <termios.h>
+#include <time_calc.h>
 #include <input.h>
+#include <mode.h>
 
 static struct termios g_old;
 static int g_term_saved = 0;
@@ -56,4 +58,22 @@ int Read_Key(void)
         input = EOF;
     }
     return input;
+}
+
+void State_Update(int key_input)
+{
+    switch (key_input)
+    {
+        case ' ':
+            Bricks_State.mode = START;
+            break;
+        case KEY_EXIT:
+            Bricks_State.mode = EXIT;
+            break;
+        case 'p': case 'P':
+            Bricks_State.mode = PAUSE;
+            break;
+        default:
+            break;
+    }
 }

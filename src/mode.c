@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <print.h>
+#include <time_calc.h>
+#include <input.h>
+#include <mode.h>
+
+Game_State Bricks_State=
+{
+    .score = 0,
+    .mode = START,
+    .start = 0,
+    .next_time = 0,
+};
+
+void Game_Start(int *key_input)
+{
+    Tank_PosiCtrl(*key_input);
+    Refresh_Bullet(*key_input);
+    Refresh_Brick();
+    Screen_Print(Print_Content);
+}

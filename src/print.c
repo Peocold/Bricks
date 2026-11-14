@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <print.h>
 #include <time_calc.h>
+#include <mode.h>
 
 // 可动范围: 17行36列
 char Print_Content[17][37];
@@ -111,6 +112,7 @@ void Refresh_Bullet(int key_input)
                 {
                     Print_Content[i-1][j] = ' ';
                     Print_Content[i][j] = ' ';
+                    Bricks_State.score++;
                 }
             }
         }
@@ -138,6 +140,11 @@ void Refresh_Brick(void)
             {
                 if(Print_Content[i][j] == '-')
                 {
+                    if(i == 15)
+                    {
+                        Bricks_State.mode = OVER;
+                        break;
+                    }
                     Print_Content[i][j] = ' ';
                     Print_Content[i+1][j] = '-';
                 }
