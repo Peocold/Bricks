@@ -13,7 +13,7 @@ int main(void)
     int key_input=0;
     while(1)
     {
-        Refresh(&Bricks_State.next_time, 30);
+        Refresh(&Bricks_State.next_time, 60);
         key_input = Read_Key();
         Tank_Ctrl(key_input);
         Screen_Print(Print_Content);

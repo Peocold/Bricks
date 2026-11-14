@@ -22,8 +22,9 @@ void Windows_Init(void)
     }
     // 记录初始时间
     Print_Content[Plane.y][Plane.x] = '=';
+    Print_Content[Plane.y][Plane.x+1] = '=';
     Bricks_State.next_time = Now_Second();
-    printf("\033[8;18;38t");
+    printf("\033[8;18;18t");
     fflush(stdout);
 }
 
@@ -50,32 +51,40 @@ void Tank_Ctrl(int key_input)
             if(Plane.y > 0)
             {
                 Print_Content[Plane.y][Plane.x] = ' ';
+                Print_Content[Plane.y][Plane.x+1] = ' ';
                 Plane.y--;
                 Print_Content[Plane.y][Plane.x] = '=';
+                Print_Content[Plane.y][Plane.x+1] = '=';
             }
             break;
         case 's': case 'S':
             if(Plane.y < 16)
             {
                 Print_Content[Plane.y][Plane.x] = ' ';
+                Print_Content[Plane.y][Plane.x+1] = ' ';
                 Plane.y++;
                 Print_Content[Plane.y][Plane.x] = '=';
+                Print_Content[Plane.y][Plane.x+1] = '=';
             }
             break;
         case 'a': case 'A':
             if(Plane.x > 0)
             {
                 Print_Content[Plane.y][Plane.x] = ' ';
+                Print_Content[Plane.y][Plane.x+1] = ' ';
                 Plane.x--;
                 Print_Content[Plane.y][Plane.x] = '=';
+                Print_Content[Plane.y][Plane.x+1] = '=';
             }
             break;
         case 'd': case 'D':
-            if(Plane.x < 35)
+            if(Plane.x < 34)
             {
                 Print_Content[Plane.y][Plane.x] = ' ';
+                Print_Content[Plane.y][Plane.x+1] = ' ';
                 Plane.x++;
                 Print_Content[Plane.y][Plane.x] = '=';
+                Print_Content[Plane.y][Plane.x+1] = '=';
             }
             break; 
         default:
