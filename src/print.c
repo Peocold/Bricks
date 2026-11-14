@@ -103,9 +103,14 @@ void Refresh_Bullet(int key_input)
             if(Print_Content[i][j] == '|')
             {
                 Print_Content[i][j] = ' ';
-                if(i > 0)
+                if(i > 0 && Print_Content[i-1][j] != '-')
                 {
                     Print_Content[i-1][j] = '|';
+                }
+                if(Print_Content[i-1][j] == '-')
+                {
+                    Print_Content[i-1][j] = ' ';
+                    Print_Content[i][j] = ' ';
                 }
             }
         }
