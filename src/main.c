@@ -30,10 +30,12 @@ int main(void)
         }
         if(Bricks_State.mode == EXIT)
         {
+            Bricks_State.start = 0;
             break;
         }
         if(Bricks_State.mode == OVER)
         {
+            Bricks_State.start = 0;
             for(int i = 0; i < 17; i++)
             {
                 for(int j = 0; j < 36; j++)

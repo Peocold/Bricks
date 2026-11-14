@@ -80,13 +80,8 @@ void Time_Display(void)
             printf("分数:%05d         已运行%01d时%02d分%02d秒\n",Bricks_State.score,Bricks_State.Time_Display.hour,
                     Bricks_State.Time_Display.min,Bricks_State.Time_Display.sec);
             break;
-        case EXIT:
-            printf("结束               已运行%01d时%02d分%02d秒\n",Bricks_State.Time_Display.hour,
-                    Bricks_State.Time_Display.min,Bricks_State.Time_Display.sec);
-            break;
-        case OVER:
-            printf("游戏结束!你的分数为:%d\n",Bricks_State.score);
-            Bricks_State.score = 0;
+        case EXIT: case OVER:
+            printf("分数:%05d         游戏结束\n",Bricks_State.score);
             break;
     }
 }

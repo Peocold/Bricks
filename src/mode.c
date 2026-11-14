@@ -14,6 +14,11 @@ Game_State Bricks_State=
 
 void Game_Start(int *key_input)
 {
+    if(Bricks_State.start == 0)
+    {
+        Bricks_State.score = 0;
+    }
+    Bricks_State.start = 1;
     Tank_PosiCtrl(*key_input);
     Refresh_Bullet(*key_input);
     Refresh_Brick();
