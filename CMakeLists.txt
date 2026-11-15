@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.13)
 
 project(Bricks C)
 
@@ -14,7 +14,8 @@ add_library(bricks_core STATIC
 # 先跳到src的cmakelists
 add_subdirectory(src)
 
-# 编译bricks_core库时头文件到include下找,其他依赖于bricks_core的target也会继承
+# 编译bricks_core库时头文件到include下找
+# 其他依赖于bricks_core的target(这里是bricks)也会继承
 target_include_directories(bricks_core PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
 # 配置安装规则
