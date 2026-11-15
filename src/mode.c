@@ -19,7 +19,7 @@ void Game_Start(int *key_input)
         Bricks_State.score = 0;
         Bricks_State.start = 1;
     }
-    Tank_PosiCtrl(*key_input);
+    Plane_PosiCtrl(*key_input);
     Refresh_Bullet(*key_input);
     Refresh_Brick();
     Screen_Print(Print_Content);

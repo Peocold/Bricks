@@ -12,7 +12,7 @@ typedef struct Plane_struct_t
 
 void Windows_Init(void);
 void Screen_Print(char Content[17][37]);
-void Tank_PosiCtrl(int key_input);
+void Plane_PosiCtrl(int key_input);
 void Refresh_Bullet(int key_input);
 void Refresh_Brick(void);
 

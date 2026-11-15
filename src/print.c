@@ -46,7 +46,7 @@ void Screen_Print(char Content[17][37])
     fflush(stdout);
 }
 
-void Tank_PosiCtrl(int key_input)
+void Plane_PosiCtrl(int key_input)
 {
     switch (key_input)
     {
