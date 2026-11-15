@@ -104,11 +104,11 @@ void Refresh_Bullet(int key_input)
             if(Print_Content[i][j] == '|')
             {
                 Print_Content[i][j] = ' ';
-                if(i > 0 && Print_Content[i-1][j] != '-')
+                if(i > 0 && Print_Content[i-1][j] != '_')
                 {
                     Print_Content[i-1][j] = '|';
                 }
-                if(Print_Content[i-1][j] == '-')
+                if(Print_Content[i-1][j] == '_')
                 {
                     Print_Content[i-1][j] = ' ';
                     Print_Content[i][j] = ' ';
@@ -138,7 +138,7 @@ void Refresh_Brick(void)
         {
             for(int j = 0; j < 36; j++)
             {
-                if(Print_Content[i][j] == '-')
+                if(Print_Content[i][j] == '_')
                 {
                     if(i == 15)
                     {
@@ -146,14 +146,14 @@ void Refresh_Brick(void)
                         break;
                     }
                     Print_Content[i][j] = ' ';
-                    Print_Content[i+1][j] = '-';
+                    Print_Content[i+1][j] = '_';
                 }
             }
         }
         next_spawn = now + 1.0;
         for(int i = 0; i < 5; i++)
         {
-            Print_Content[0][rand() % 36] = '-';
+            Print_Content[0][rand() % 36] = '_';
         }
     }
 }
