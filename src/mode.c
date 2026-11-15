@@ -17,6 +17,8 @@ void Game_Start(int *key_input)
     if(Bricks_State.start == 0)
     {
         Bricks_State.score = 0;
+        Plane.x = Plane.y = 16;
+        Print_Content[Plane.y][Plane.x] = Print_Content[Plane.y][Plane.x+1] = '=';
         Bricks_State.start = 1;
     }
     Plane_PosiCtrl(*key_input);
