@@ -23,19 +23,18 @@ int main(void)
             case START:
                 Game_Start(&key_input);
                 break;
-            case PAUSE: case OVER:
+            case PAUSE:
                 break;
-            default:
+            case OVER: default:
+                Bricks_State.start = 0;
                 break;
         }
         if(Bricks_State.mode == EXIT)
         {
-            Bricks_State.start = 0;
             break;
         }
         if(Bricks_State.mode == OVER)
         {
-            Bricks_State.start = 0;
             for(int i = 0; i < 17; i++)
             {
                 for(int j = 0; j < 36; j++)

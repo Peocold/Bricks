@@ -14,7 +14,6 @@ Time_Diff Get_Time(uint8_t *open_state)
     if(*open_state == 0)
     {
         open_timeinfo = timeinfo;
-        (*open_state)++;
     }
     else
     {
